@@ -78,14 +78,21 @@ figure {
  * images so that we can see a bit better and we're cropping out part that less
  * interesting.
  * */
-figure img {
+#collections figure img {
   margin-bottom: -4px;
   width: 100%;
-  object-fit: cover;
-  object-position: 0 -150px;
 }
 
-figcaption {
+/* Once the gap at the bottom appears, add these properties. */
+
+@media (min-width: 400px) {
+  #collections figure img {
+    object-fit: cover;
+    object-position: 0 -150px;
+  }
+}
+
+#collections figcaption {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.875rem;
   position: absolute;
@@ -100,7 +107,7 @@ figcaption {
  * By default, our links are an inline type of configuration, they're only as
  * wide as their content. And so, people can easily miss that clickable area.
  * */
-figcaption a {
+#collections figcaption a {
   display: block;
   padding: 1rem;
   text-decoration: none;
@@ -191,7 +198,7 @@ figcaption a {
   }
 
   .missiontext {
-    display: flow;
+    display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
   }
