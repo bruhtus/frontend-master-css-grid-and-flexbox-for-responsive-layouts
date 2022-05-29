@@ -1,0 +1,395 @@
+/* colors - see style guide for docs.
+Clearly there is more you could place in variables, up to you if you want to use them. My answer does not go beyond colors to keep the code easier to read. */
+
+:root {
+  --color1: #001219;
+  --color2: #005f73;
+  --color3: #3d9397;
+  --color4: #94d28d;
+  --color5: #e9d8a6;
+  --color6: #ee9800;
+  --color7: #ca6702;
+  --color8: #bb3e03;
+  --color9: #ae2012;
+  --color10: #9b2226;
+}
+
+
+/* generic site styles */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #DBE5DE;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section h2 {
+  font-size: 2.5rem;
+}
+
+section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+figure {
+  margin: 0;
+}
+
+/* Header and nav style. */
+
+.header {
+  background-color: var(--color5);
+}
+
+/* `margin: 0 auto` push the element in the center of the page. */
+header {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigation style across breakpoints. */
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: space-between;
+}
+
+/* Two button per row. */
+nav li {
+  flex-basis: 48%;
+  margin-bottom: 0.5rem;
+}
+
+/* The first bullet component is the logo. */
+nav li:first-child {
+  /* margin-right: auto; */
+  flex-basis: 100%;
+  text-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: white;
+  background-color: var(--color10);
+  display: block;
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+nav li:first-child a {
+  background-color: transparent;
+}
+
+nav a:hover {
+  background-color: var(--color1);
+  color: var(--color5);
+}
+
+/* To keep mobile screen from being too long, consider setting max height on
+ * images and hide the overflow
+ * (ref: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow).
+ * */
+#collections figure {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  max-height: 400px;
+  overflow: hidden;
+  position: relative;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+/*
+ * In between the figure and the caption, there's this little space that shows
+ * up. This remove those little space.
+ *
+ * When we setup our max height on the images, they will take the top of the
+ * images. Sometimes the interesting part are down towards the bottom. So, with
+ * object fit and object position, we can pushing up the visible portion of the
+ * images so that we can see a bit better and we're cropping out part that less
+ * interesting.
+ * */
+#collections figure img {
+  margin-bottom: -4px;
+  width: 100%;
+}
+
+/* Once the gap at the bottom appears, add these properties. */
+
+@media (min-width: 400px) {
+  #collections figure img {
+    object-fit: cover;
+    object-position: 0 -150px;
+  }
+}
+
+#collections figcaption {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.875rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * To make a big clickable area with `display: block`.
+ * By default, our links are an inline type of configuration, they're only as
+ * wide as their content. And so, people can easily miss that clickable area.
+ * */
+#collections figcaption a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--color1);
+}
+
+/*
+ * Styling border color and hover color.
+ * */
+.color2,
+.color2 a:hover {
+  border-color: var(--color2);
+  color: var(--color2);
+}
+
+.color3,
+.color3 a:hover {
+  border-color: var(--color3);
+  color: var(--color3);
+}
+
+.color4,
+.color4 a:hover {
+  border-color: var(--color4);
+  color: var(--color4);
+}
+
+.color6,
+.color6 a:hover {
+  border-color: var(--color6);
+  color: var(--color6);
+}
+
+.color7,
+.color7 a:hover {
+  border-color: var(--color7);
+  color: var(--color7);
+}
+
+.color8,
+.color8 a:hover {
+  border-color: var(--color8);
+  color: var(--color8);
+}
+
+/* Initial mobile layout:
+ * a series of images stacked on top of each other with the figure caption over
+ * the image.
+ * */
+
+#mission {
+  margin-bottom: 3rem;
+}
+
+/* Give a little bit of breathing room in between the text */
+.missiontext {
+  display: block;
+  line-height: 1.7;
+}
+
+/*
+ * By setting the mission text and image to `display: block`, that ensures they
+ * will stack on top of each other at mobile dimensions.
+ * */
+.missionimg {
+  display: block;
+}
+
+/* Footer styles */
+
+/* Color that stretch in the footer background */
+.footer {
+  background-color: var(--color5);
+}
+
+footer {
+  padding: 3rem;
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* This prevent the top of the .social element and the address from aligning. */
+footer h4 {
+  margin-top: 0;
+}
+
+/* To put two social media icon next to each other. */
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* We want a constant distance between the buttons so they remain clickable at
+ * all times. `flex-basis` doesn't do that, sometimes the buttons are too close
+ * together.
+ * */
+footer li {
+  margin-right: 1rem;
+}
+
+footer address {
+  font-style: normal;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* At this breakpoint, transition to 2 figures per line */
+
+@media (min-width: 550px) {
+  #collections ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  #collections li,
+  .social,
+  address {
+    flex-basis: 49.5%;
+  }
+
+  /* Turn off object position when we get to the larger screens. Otherwise,
+   * what we will see is half of the image and half of it will be cut off and
+   * we'll just have blank space.
+   * */
+  #collections figure img {
+    object-position: 0;
+  }
+
+  .missiontext {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .missiontext figure {
+    flex-basis: 32.5%;
+    order: 1;
+  }
+
+  .missiontext img {
+    width: 100%;
+  }
+
+  .missiontext p {
+    flex-basis: 65.5%;
+    order: 2;
+  }
+
+  /* Remove the top margin assigned above that previded space between .social
+   * and address.
+   * */
+  footer address {
+    margin-top: 1rem;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 1.2em;
+  }
+
+  nav li {
+    flex-basis: auto;
+    margin-bottom: 0;
+  }
+
+  nav a {
+    color: var(--color1);
+    background-color: transparent;
+  }
+}
+
+
+/* At this breakpoint, transition to 3 figures per line */
+
+@media (min-width: 800px) {
+  section h2 {
+    margin-left: 100px;
+  }
+
+  #collections li,
+  .social {
+    flex-basis: 32.5%;
+  }
+
+  address {
+    flex-basis: 65.5%;
+  }
+
+  .missiontext {
+    justify-content: space-between;
+  }
+
+  #mission .missiontext {
+    flex-basis: 64.5%;
+  }
+
+  #mission img {
+    flex-basis: 32.5%;
+  }
+
+  /* Navigation: Logo in the center. */
+  nav ul {
+    justify-content: flex-end;
+  }
+
+  nav li:first-child {
+    flex-basis: auto;
+    margin: 0 auto;
+    order: 2;
+  }
+
+  nav li:nth-child(2),
+  nav li:nth-child(3) {
+    order: 1;
+  }
+
+  nav li:nth-child(4),
+  nav li:nth-child(5) {
+    order: 3;
+  }
+}
